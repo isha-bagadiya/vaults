@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "pair": "WETH-USDC",
+        "apr": "275.28%",
+        "tvl": "$479.65K",
+        "position": "-",
+        "derivatives": "STRYKE / PANCAKESWAP"
+    },
+    {
+        "id": "2",
+        "pair": "WETH-USDC",
+        "apr": "275.28%",
+        "tvl": "$479.65K",
+        "position": "-",
+        "derivatives": "STRYKE / PANCAKESWAP"
+    },
+    {
+        "id": "3",
+        "pair": "WETH-USDC",
+        "apr": "275.28%",
+        "tvl": "$479.65K",
+        "position": "-",
+        "derivatives": "STRYKE / PANCAKESWAP"
+    }
+]

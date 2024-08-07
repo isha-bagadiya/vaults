@@ -13,7 +13,7 @@ export function Providers({ children }) {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider>{children}</RainbowKitProvider>
+        <RainbowKitProvider chains={config.chains}>{children}</RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
   );
