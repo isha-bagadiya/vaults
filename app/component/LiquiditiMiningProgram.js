@@ -1,27 +1,48 @@
-import React from 'react';
+import React, { useState } from "react";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+
 
 const LiquidityMiningProgram = () => {
+  const [isOpen, setIsOpen] = useState(true);
+  const toggleContent = () => {
+    setIsOpen(!isOpen);
+  };
+
+
   return (
-    <div className="bg-gray-900 text-white p-4 rounded-lg w-full">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-semibold">Merkl Liquidity Mining Program</h2>
-        <button className="text-2xl">−</button>
+    <div className="text-white w-full flex flex-col gap-[2px]">
+      <div className="bg-[#1E212A] px-5 py-3 flex justify-between items-center rounded-t-xl">
+        <h2 className="text-lg font-semibold">
+          Merkl Liquidity Mining Program
+        </h2>
+        <button className="text-2xl" onClick={toggleContent}>
+        {isOpen ? <AiOutlineMinus /> : <AiOutlinePlus />}
+        </button>
       </div>
-      
-      <p className="text-gray-400 text-sm mb-4">
-        Claim your rewards without staking LP positions.
-        Rewards are distributed in regular intervals. 
-        <a href="#" className="text-blue-400 hover:underline ml-1">Learn More</a>
-      </p>
-      
-      <div className="flex justify-between items-center mb-6">
-        <span className="text-gray-400">Reward APR</span>
-        <span className="text-xl font-bold">21.02%</span>
+
+      {isOpen && (
+      <div className="bg-[#1E212A] px-5 py-5 flex flex-col justify-between gap-4">
+        <p className="text-gray-300 text-sm">
+          Claim your rewards without staking LP positions. Rewards are
+          distributed in regular intervals.
+          <a href="#" className="text-white font-bold hover:underline ml-1">
+            Learn More
+          </a>{" "}
+        </p>
+        
+
+        <div className="flex justify-between items-center">
+          <span className="text-gray-300">Reward APR</span>
+          <span className="font-bold">21.02%</span>
+        </div>
       </div>
-      
-      <button className="w-full bg-orange-700 hover:bg-orange-600 text-white py-3 rounded-lg transition duration-300">
-        Claim Rewards
-      </button>
+      )}
+
+      <div className="bg-[#1E212A] px-5 py-5 rounded-b-xl">
+        <button className="w-full bg-[#FB5B0D1F] hover:opacity-90 text-orange-500 hover:text-orange-600 py-3 rounded-2xl transition duration-300">
+          Claim Rewards
+        </button>
+      </div>
     </div>
   );
 };

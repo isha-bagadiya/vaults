@@ -19,6 +19,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-width: none;
 }
 
 body {
@@ -31,3 +32,17 @@ body {
     text-wrap: balance;
   }
 }
+
+
+/* connect button css */
+
+
+[data-rk] .ju367v9i {
+  background: #Fb5b0d !important;
+}
+
+[data-rk] .ju367v9i:hover {
+  background: #ea580c !important;
+}
+
+
