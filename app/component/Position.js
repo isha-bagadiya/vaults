@@ -8,7 +8,7 @@ const Position = () => {
 
   return (
     <div className="w-full flex flex-col gap-[2px]">
-      <div className="bg-[#1E212A] flex justify-between items-center rounded-t-xl rounded-b px-5 py-5">
+      <div className="text-nowrap bg-[#1E212A] flex justify-between items-center rounded-t-xl rounded-b px-5 py-5">
         <span>Your position</span>
         <p className="flex gap-2 items-center">
         <span className="">$0.00</span>
@@ -44,7 +44,7 @@ const Position = () => {
       </div>
 
       {activeTab === "deposit" && (
-        <div className="bg-[#1E212A] text-gray-400 rounded-t rounded-b-xl px-5 py-5 mt-[1px]">
+        <div className="bg-[#1E212A] text-gray-400 rounded-t rounded-b-xl px-5 py-5 mt-[0.4px]">
           <div className="flex flex-col">
             <div className="flex justify-between items-center text-sm mb-2">
               <span>Amount</span>
@@ -57,7 +57,7 @@ const Position = () => {
             >
               <p className="mx-2">WETH</p>
               <input
-                className="bg-transparent flex-grow p-2 mx-2 focus:border-none focus:outline-none"
+                className="bg-transparent p-2 mx-2 focus:border-none focus:outline-none w-[80%]"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
               />
@@ -116,7 +116,7 @@ const Position = () => {
               <p className="mx-2">WETH</p>
 
               <input
-                className="bg-transparent flex-grow p-2 mx-2 focus:border-none focus:outline-none"
+                className="w-[80%] bg-transparent flex-grow p-2 mx-2 focus:border-none focus:outline-none"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
               />

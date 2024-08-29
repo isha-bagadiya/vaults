@@ -41,7 +41,7 @@ const VaultTable = ({ data }) => {
   return (
     <div className="flex flex-col mb-8">
       <div>
-        <div className="space-x-10 my-2">
+        <div className="space-x-7 xl:space-x-10 my-2">
           <button
             className={`font-medium text-xl p-2 ${
               activeTab === "vaults" ? "" : "text-[#6B7280]"
@@ -71,12 +71,13 @@ const VaultTable = ({ data }) => {
 
       <div className="my-5">
         <button className="flex items-center gap-2 px-7 py-3 border border-orange-600 rounded-2xl">
-          <Image src={arbitrum} alt="arbitrum" width={20} height={20}></Image>
-          Arbitrum
+          {/* <Image src={arbitrum} alt="arbitrum" width={20} height={20}></Image>
+          Arbitrum */}
+          RootStock
         </button>
       </div>
 
-      <div className="flex gap-3">
+      <div className="flex gap-3 flex-col md:flex-row">
         {/* Left Side Filter Buttons */}
         <aside className="w-[20%] text-white flex flex-col gap-2">
           <button
@@ -92,7 +93,7 @@ const VaultTable = ({ data }) => {
             onClick={() => handleFilterChange("dualliquidity")}
             className="bg-[#1E212A] hover:bg-[#2b2E37] w-full px-6 py-3 rounded-xl text-left flex items-center justify-between"
           >
-            Dual Liquidity
+            Single
             {activeButton === "dualliquidity" && (
               <div className="w-2 h-2 rounded-full bg-orange-500 drop-shadow-[0_2px_6px_rgba(251,91,13,0.8)]"></div>
             )}
@@ -101,7 +102,7 @@ const VaultTable = ({ data }) => {
             onClick={() => handleFilterChange("bluechip")}
             className="bg-[#1E212A] hover:bg-[#2b2E37] w-full px-6 py-3 rounded-xl text-left flex items-center justify-between"
           >
-            Bluechip
+            LP
             {activeButton === "bluechip" && (
               <div className="w-2 h-2 rounded-full bg-orange-500 drop-shadow-[0_2px_6px_rgba(251,91,13,0.8)]"></div>
             )}
@@ -110,7 +111,7 @@ const VaultTable = ({ data }) => {
             onClick={() => handleFilterChange("pegged")}
             className="bg-[#1E212A] hover:bg-[#2b2E37] w-full px-6 py-3 rounded-xl text-left flex items-center justify-between"
           >
-            Pegged
+            CLM
             {activeButton === "pegged" && (
               <div className="w-2 h-2 rounded-full bg-orange-500 drop-shadow-[0_2px_6px_rgba(251,91,13,0.8)]"></div>
             )}
@@ -118,7 +119,7 @@ const VaultTable = ({ data }) => {
         </aside>
 
         {/* Right Side Table */}
-        <main className=" w-[80%] flex flex-col gap-1 overflow-y-auto">
+        <main className="w-full md:w-[80%] flex flex-col gap-1 overflow-y-auto">
           <table>
             <tr>
               <div className="w-full bg-[#2b2E37] rounded-t-xl">
@@ -129,7 +130,7 @@ const VaultTable = ({ data }) => {
                 </td>
                 <td>
                   <div className="whitespace-nowrap w-[130px] pl-4 py-3 text-left text-xs font-medium uppercase tracking-wider">
-                    Total APR
+                    APY
                   </div>
                 </td>
                 <td>
@@ -144,7 +145,7 @@ const VaultTable = ({ data }) => {
                 </td>
                 <td>
                   <div className="min-w-[250px] whitespace-nowrap pl-4 py-3 text-left text-xs font-medium uppercase tracking-wider">
-                    Derivatives / DEX
+                    PLATFORM
                   </div>
                 </td>
               </div>
@@ -165,12 +166,14 @@ const VaultTable = ({ data }) => {
                               alt="arbitrum"
                               width={20}
                               height={20}
+                              className="rounded-full"
                             ></Image>
                             <Image
                               src={vault.icon2}
                               alt="arbitrum"
                               width={20}
                               height={20}
+                              className="rounded-full"
                             ></Image>
                           </div>
                           {vault.pair}
