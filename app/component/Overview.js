@@ -24,12 +24,12 @@ const Overview = ({ data }) => {
   return (
     <div className="py-3 pr-3">
       <h2 className="text-3xl font-bold my-3">{strategyText}</h2>
-      <p className="text-gray-400 mb-6">{strategyDescription}</p>
+      <p className="text-gray-400 mb-6 text-justify">{strategyDescription}</p>
       <button className="bg-[#2B2E37] px-5 py-3 rounded-xl mb-6">
         More Info ↗
       </button>
       <div className="flex flex-col gap-[2px] my-7">
-        <div className="flex justify-between items-center bg-[#1E212A] rounded-t-xl px-5 py-6">
+        <div className="flex flex-col sm:flex-row gap-2 justify-between sm:items-center bg-[#1E212A] rounded-t-xl px-5 py-6 text-xs sm:text-base">
           <span>Asset Allocation</span>
           <div>
             {data.derivatives.length === 2 ? (
@@ -66,7 +66,7 @@ const Overview = ({ data }) => {
             )}
           </div>
         </div>
-        <div className="flex justify-between items-center bg-[#1E212A] rounded-b-xl px-5 py-6">
+        <div className="flex flex-col sm:flex-row gap-2 justify-between sm:items-center bg-[#1E212A] rounded-b-xl px-5 py-6 text-xs sm:text-base">
           <span>Source of revenue</span>
           <div>
             {data.derivatives.length === 2 ? (

@@ -13,13 +13,13 @@ const Left = ({data}) => {
 
       <div className="flex gap-4 mb-6">
         <button 
-          className={`px-6 py-4 rounded-2xl ${activeTab === 'Overview' ? 'bg-[#383b45]' : 'bg-[#1E212A]'}`}
+          className={`px-3 sm:px-6 py-2 sm:py-4 rounded-xl sm:rounded-2xl ${activeTab === 'Overview' ? 'bg-[#383b45]' : 'bg-[#1E212A]'}`}
           onClick={() => setActiveTab('Overview')}
         >
           Overview
         </button>
         <button 
-          className={`px-4 py-2 rounded-2xl ${activeTab === 'Analytics' ? 'bg-[#383b45]' : 'bg-[#1E212A]'}`}
+          className={`px-3 sm:px-6 py-2 sm:py-4 rounded-xl sm:rounded-2xl ${activeTab === 'Analytics' ? 'bg-[#383b45]' : 'bg-[#1E212A]'}`}
           onClick={() => setActiveTab('Analytics')}
         >
           Analytics

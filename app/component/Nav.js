@@ -11,10 +11,10 @@ const Nav = () => {
   };
 
   return (
-    <nav className="bg-black z-40 text-white px-2 xl:px-10 py-7 flex justify-between items-center w-[90%] mx-auto">
+    <nav className="bg-black z-40 text-white px-2 xl:px-10 py-7 flex justify-between items-center sm:w-[90%] mx-auto">
       <div className="flex flex-row items-center space-x-10 xl:space-x-16">
         <div className="p-2 text-orange-500">LOGO Vault</div>
-        <div className="hidden md:flex space-x-5 xl:space-x-9">
+        <div className="hidden min-[900px]:flex space-x-5 xl:space-x-9">
           <Link href="/">Liquidity Vaults</Link>
           <Link href="/">Points</Link>
           <Link href="/">Spaceship</Link>
@@ -33,106 +33,139 @@ const Nav = () => {
           }}
         />
       </div> */}
-      <ConnectButton.Custom>
-            {({
-              account,
-              chain,
-              openAccountModal,
-              openChainModal,
-              openConnectModal,
-              authenticationStatus,
-              mounted,
-            }) => {
-              const ready = mounted && authenticationStatus !== 'loading';
-              const connected =
-                ready &&
-                account &&
-                chain &&
-                (!authenticationStatus ||
-                  authenticationStatus === 'authenticated');
 
-              return (
-                <div
-                  {...(!ready && {
-                    'aria-hidden': true,
-                    'style': {
-                      opacity: 0,
-                      pointerEvents: 'none',
-                      userSelect: 'none',
-                    },
-                  })}
-                >
-                  {(() => {
-                    if (!connected) {
-                      return (
-                        <button onClick={openConnectModal} type="button" className="btn-primary">
-                          Connect Wallet
-                        </button>
-                      );
-                    }
+      <div className="flex items-center sm:space-x-2 space-x-1">
+        <ConnectButton.Custom>
+          {({
+            account,
+            chain,
+            openAccountModal,
+            openChainModal,
+            openConnectModal,
+            authenticationStatus,
+            mounted,
+          }) => {
+            const ready = mounted && authenticationStatus !== "loading";
+            const connected =
+              ready &&
+              account &&
+              chain &&
+              (!authenticationStatus ||
+                authenticationStatus === "authenticated");
 
-                    if (chain.unsupported) {
-                      return (
-                        <button onClick={openChainModal} type="button" className="btn-secondary">
-                          Wrong network
-                        </button>
-                      );
-                    }
-
+            return (
+              <div
+                {...(!ready && {
+                  "aria-hidden": true,
+                  style: {
+                    opacity: 0,
+                    pointerEvents: "none",
+                    userSelect: "none",
+                  },
+                })}
+              >
+                {(() => {
+                  if (!connected) {
                     return (
-                      <div className="flex items-center space-x-2">
-                        <button
-                          onClick={openChainModal}
-                          className="btn-primary"
-                        >
-                          {chain.hasIcon && (
-                            <div className="w-6 h-6 mr-2">
-                              {chain.iconUrl && (
-                                <img
-                                  alt={chain.name ?? 'Chain icon'}
-                                  src={chain.iconUrl}
-                                  className="w-full h-full"
-                                />
-                              )}
-                            </div>
-                          )}
-                          <span className="hidden md:inline">{chain.name}</span>
-                        </button>
-                        <button onClick={openAccountModal} type="button" className="btn-primary">
-                          {account.displayName}
-                        </button>
-                      </div>
+                      <button
+                        onClick={openConnectModal}
+                        type="button"
+                        className="text-white rounded-xl bg-orange-700 hover:bg-orange-600 px-4 py-2 transition duration-300 text-nowrap"
+                      >
+                        Connect Wallet
+                      </button>
                     );
-                  })()}
-                </div>
-              );
-            }}
-          </ConnectButton.Custom>
-        
+                  }
 
-      <div className="md:hidden">
-        <button onClick={toggleMenu} className="text-white">
-          {isMenuOpen ? <IoClose size={24} /> : <IoMenu size={24} />}
-        </button>
-      </div>
-      {isMenuOpen && (
-        <div className="md:hidden mt-4 pb-4">
-          <div className="flex flex-col space-y-4">
-            <Link href="/" onClick={toggleMenu}>
-              Liquidity Vaults
-            </Link>
-            <Link href="/" onClick={toggleMenu}>
-              Points
-            </Link>
-            <Link href="/" onClick={toggleMenu}>
-              Spaceship
-            </Link>
-            <Link href="/" onClick={toggleMenu}>
-              Astronaut
-            </Link>
-          </div>
+                  if (chain.unsupported) {
+                    return (
+                      <button
+                        onClick={openChainModal}
+                        type="button"
+                        className="bg-[#FB5B0D1F] hover:opacity-90 text-orange-500 hover:text-orange-600 px-4 py-2 rounded-2xl transition duration-300 text-nowrap"
+                      >
+                        Wrong network
+                      </button>
+                    );
+                  }
+
+                  return (
+                    <div className="flex items-center sm:space-x-2 space-x-1">
+                      <button
+                        onClick={openChainModal}
+                        className="text-white sm:rounded-xl rounded-lg
+                         bg-orange-700 hover:bg-orange-600 sm:px-3 px-2 sm:py-2 py-1 transition duration-300 flex items-center"
+                      >
+                        {chain.hasIcon && (
+                          <div className="w-6 h-6 mr-2">
+                            {chain.iconUrl && (
+                              <img
+                                alt={chain.name ?? "Chain icon"}
+                                src={chain.iconUrl}
+                                className="w-full h-full"
+                              />
+                            )}
+                          </div>
+                        )}
+                        <span className="truncate max-w-[55px] sm:max-w-none text-[12px] font-medium">
+                          {chain.name}
+                        </span>
+                      </button>
+                      <button
+                        onClick={openAccountModal}
+                        type="button"
+                        className="text-white sm:rounded-xl rounded-lg bg-orange-700 hover:bg-orange-600 sm:px-3 px-2 sm:py-2 py-1 transition duration-300 truncate max-w-[70px] sm:max-w-none text-[12px] font-medium"
+                      >
+                        {account.displayName}
+                      </button>
+                    </div>
+                  );
+                })()}
+              </div>
+            );
+          }}
+        </ConnectButton.Custom>
+
+        <div className="min-[900px]:hidden z-20 flex items-center justify-center">
+          <button onClick={toggleMenu} className="text-white">
+            {isMenuOpen ? <IoClose size={24} /> : <IoMenu size={24} />}
+          </button>
         </div>
-      )}
+        {isMenuOpen && (
+          <div className="min-[900px]:hidden absolute top-[90px] right-[30px] w-[210px]">
+            <div className="flex flex-col w-full bg-orange-700 rounded-lg overflow-hidden p-2 text-xs">
+              <Link
+                href="/"
+                onClick={toggleMenu}
+                className="hover:bg-orange-600 px-4 py-3 rounded-lg"
+              >
+                Liquidity Vaults
+              </Link>
+              <Link
+                href="/"
+                onClick={toggleMenu}
+                className="hover:bg-orange-600 px-4 py-3 rounded-lg"
+              >
+                Points
+              </Link>
+              <Link
+                href="/"
+                onClick={toggleMenu}
+                className="hover:bg-orange-600 px-4 py-3 rounded-lg"
+              >
+                Spaceship
+              </Link>
+              <Link
+                href="/"
+                onClick={toggleMenu}
+                className="hover:bg-orange-600 px-4 py-3 rounded-lg"
+              >
+                Astronaut
+              </Link>
+            </div>
+          </div>
+        )}
+      </div>
     </nav>
   );
 };

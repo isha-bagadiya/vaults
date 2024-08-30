@@ -12,7 +12,7 @@ const LiquidityMiningProgram = () => {
   return (
     <div className="text-white w-full flex flex-col gap-[2px]">
       <div className="bg-[#1E212A] px-5 py-3 flex justify-between items-center rounded-t-xl">
-        <h2 className="text-lg font-semibold">
+        <h2 className="text-sm sm:text-lg font-medium sm:font-semibold">
           Merkl Liquidity Mining Program
         </h2>
         <button className="text-2xl" onClick={toggleContent}>
@@ -39,7 +39,7 @@ const LiquidityMiningProgram = () => {
       )}
 
       <div className="bg-[#1E212A] px-5 py-5 rounded-b-xl">
-        <button className="w-full btn-secondary">
+        <button className="w-full bg-[#FB5B0D1F] hover:opacity-90 text-orange-500 hover:text-orange-600 p-3 rounded-2xl transition duration-300 text-nowrap">
           Claim Rewards
         </button>
       </div>

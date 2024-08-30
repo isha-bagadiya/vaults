@@ -10,15 +10,15 @@ const Position = () => {
     <div className="w-full flex flex-col gap-[2px]">
       <div className="text-nowrap bg-[#1E212A] flex justify-between items-center rounded-t-xl rounded-b px-5 py-5">
         <span>Your position</span>
-        <p className="flex gap-2 items-center">
+        <p className="flex gap-2 items-center text-xs">
         <span className="">$0.00</span>
-        <span className="text-sm text-gray-400">0.0000 USDC</span>
+        <span className="sm:text-sm text-gray-400">0.0000 USDC</span>
         </p>
       </div>
 
       <div className="flex items-center justify-between">
         <button
-          className={`bg-[#1E212A] py-5 w-[33%] rounded ${
+          className={`bg-[#1E212A] py-3 sm:py-5 w-[33%] rounded ${
             activeTab === "deposit" ? "bg-[#2B2E37]" : "text-gray-400"
           }`}
           onClick={() => setActiveTab("deposit")}
@@ -26,7 +26,7 @@ const Position = () => {
           Deposit
         </button>
         <button
-          className={`bg-[#1E212A] py-5 w-[33%] rounded ${
+          className={`bg-[#1E212A] py-3 sm:py-5 w-[33%] rounded ${
             activeTab === "reserve" ? "bg-[#2B2E37]" : "text-gray-400"
           }`}
           onClick={() => setActiveTab("reserve")}
@@ -34,7 +34,7 @@ const Position = () => {
           Reserve
         </button>
         <button
-          className={`bg-[#1E212A] py-5 w-[33%] rounded ${
+          className={`bg-[#1E212A] py-3 sm:py-5 w-[33%] rounded ${
             activeTab === "withdraw" ? "bg-[#2B2E37]" : "text-gray-400"
           }`}
           onClick={() => setActiveTab("withdraw")}
@@ -66,7 +66,7 @@ const Position = () => {
               </button>
             </div>
           </div>
-          <button className="w-full btn-primary">
+          <button className="w-full btn-text-white rounded-xl bg-orange-700 hover:bg-orange-600 p-3 transition duration-300 text-nowrap">
             Deposit
           </button>
           <div className="mt-7 text-sm flex flex-col gap-2">
