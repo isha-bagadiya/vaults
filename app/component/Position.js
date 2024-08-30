@@ -66,7 +66,7 @@ const Position = () => {
               </button>
             </div>
           </div>
-          <button className="w-full text-white rounded-xl bg-orange-700 hover:bg-orange-600 py-3">
+          <button className="w-full btn-primary">
             Deposit
           </button>
           <div className="mt-7 text-sm flex flex-col gap-2">

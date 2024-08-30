@@ -39,7 +39,7 @@ const LiquidityMiningProgram = () => {
       )}
 
       <div className="bg-[#1E212A] px-5 py-5 rounded-b-xl">
-        <button className="w-full bg-[#FB5B0D1F] hover:opacity-90 text-orange-500 hover:text-orange-600 py-3 rounded-2xl transition duration-300">
+        <button className="w-full btn-secondary">
           Claim Rewards
         </button>
       </div>
